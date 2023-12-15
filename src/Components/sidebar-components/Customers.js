@@ -19,15 +19,6 @@ import CustomerInfo from "../CustomerInfo";
 import CustomerTableRow from "../table/CustomerTableRow";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
-const useStyles = makeStyles({
-  table: {
-    // minWidth: "60%",
-    position: "relative",
-  },
-  tableCell: {
-    width: "14%",
-  },
-});
 export default function CustomerList(props) {
   const classes = useStyles();
   const [customers, setCustomers] = useState([]);
@@ -88,6 +79,15 @@ export default function CustomerList(props) {
       setErrorMsg(error.response.data.message);
     }
   };
+  const useStyles = makeStyles({
+    table: {
+      // minWidth: "60%",
+      position: "relative",
+    },
+    tableCell: {
+      width: "14%",
+    },
+  });
   const handleSaveChangesClick = async (editedCustomer) => {
     try {
       const response = await axios.put(
@@ -195,9 +195,10 @@ export default function CustomerList(props) {
             <Search search={search} setSearch={setSearch} />
             <TableContainer>
               <Table
-                /* className={classes.table} */
+                sx={{ minWidth: 650 }}
+                className={classes.table}
                 aria-label="simple table"
-                sx={{ position: "relative" }}
+                //  sx={{ position: "relative" }}
               >
                 <TableHead>
                   <TableRow sx={{ border: ".5px #ccc solid" }}>
