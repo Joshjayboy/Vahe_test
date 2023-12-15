@@ -18,7 +18,15 @@ import Search from "../table/Search";
 import CustomerInfo from "../CustomerInfo";
 import CustomerTableRow from "../table/CustomerTableRow";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-
+const useStyles = makeStyles({
+  table: {
+    // minWidth: "60%",
+    position: "relative",
+  },
+  tableCell: {
+    width: "14%",
+  },
+});
 export default function CustomerList(props) {
   const classes = useStyles();
   const [customers, setCustomers] = useState([]);
@@ -79,15 +87,7 @@ export default function CustomerList(props) {
       setErrorMsg(error.response.data.message);
     }
   };
-  const useStyles = makeStyles({
-    table: {
-      // minWidth: "60%",
-      position: "relative",
-    },
-    tableCell: {
-      width: "14%",
-    },
-  });
+
   const handleSaveChangesClick = async (editedCustomer) => {
     try {
       const response = await axios.put(
