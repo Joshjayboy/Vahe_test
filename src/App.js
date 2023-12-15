@@ -55,7 +55,8 @@ function App() {
         <Route path="/my-orders" element={privateRoute(MyOrders)} />
         <Route path="/last-order" element={privateRoute(LastOrder)} />
         <Route path="/customers" element={privateRoute(CustomerList)} />
-        <Route path={`/admin/*`} element={privateAdminRoute(AdminSidebar)} />
+        <Route path={`/admin/*`} element={<AdminSidebar />} />
+        {/* <Route path={`/admin/*`} element={privateAdminRoute(AdminSidebar)} /> */}
         <Route path="/checkout" element={privateAdminRoute(CheckOut)} />
         <Route
           path="/couriers"
