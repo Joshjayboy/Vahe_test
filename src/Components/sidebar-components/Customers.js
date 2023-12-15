@@ -195,10 +195,10 @@ export default function CustomerList(props) {
             <Search search={search} setSearch={setSearch} />
             <TableContainer>
               <Table
-                sx={{ minWidth: 650 }}
+                // sx={{ minWidth: 650 }}
                 className={classes.table}
                 aria-label="simple table"
-                //  sx={{ position: "relative" }}
+                sx={{ position: "relative" }}
               >
                 <TableHead>
                   <TableRow sx={{ border: ".5px #ccc solid" }}>
