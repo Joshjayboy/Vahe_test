@@ -196,7 +196,7 @@ export default function CustomerList(props) {
             <TableContainer>
               <Table
                 // sx={{ minWidth: 650 }}
-                className={classes.table}
+              //  className={classes.table}
                 aria-label="simple table"
                 sx={{ position: "relative" }}
               >
