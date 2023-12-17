@@ -43,10 +43,10 @@ export default function CustomerList(props) {
   const [currentPage, setCurrentPage] = useState(1);
   const [showRequestMessage, setShowRequestMessage] = useState(false);
   const [message, setMessage] = useState("");
-  const handleDeleteClick = (customer) => {
-    setCustomerToDelete(customer);
-    setDeleteCustomerDialog(true);
-  };
+  // const handleDeleteClick = (customer) => {
+  //   setCustomerToDelete(customer);
+  //   setDeleteCustomerDialog(true);
+  // };
   const handleSort = (property) => {
     const isAsc = orderBy === property && order === "asc";
     setOrder(isAsc ? "desc" : "asc");
@@ -88,39 +88,39 @@ export default function CustomerList(props) {
     }
   };
 
-  const handleSaveChangesClick = async (editedCustomer) => {
-    try {
-      const response = await axios.put(
-        `${BACKEND_BASE_URL}/customers/${editedCustomer.id}`,
-        editedCustomer,
-        {
-          headers: {
-            Authorization: `Bearer ${sessionStorage.getItem("accessToken")}`,
-            "Content-Type": "application/json",
-          },
-        }
-      );
-      if (response.status === 200) {
-        console.log("Customer edited successfully");
-        setShowRequestMessage(true);
-        setMessage("Customer edited successfully");
-        setTimeout(() => {
-          setShowRequestMessage(false);
-          setMessage("");
-        }, 3000);
-        setEditCustomerModalOpen(false);
-        setEditingCustomer(null);
-        await fetchCustomers();
-      }
-    } catch (error) {
-      setErrorMsg(error.response.data.message);
-      setMessage(error.response.data.message);
-      setTimeout(() => {
-        setShowRequestMessage(false);
-        setMessage("");
-      }, 3000);
-    }
-  };
+  // const handleSaveChangesClick = async (editedCustomer) => {
+  //   try {
+  //     const response = await axios.put(
+  //       `${BACKEND_BASE_URL}/customers/${editedCustomer.id}`,
+  //       editedCustomer,
+  //       {
+  //         headers: {
+  //           Authorization: `Bearer ${sessionStorage.getItem("accessToken")}`,
+  //           "Content-Type": "application/json",
+  //         },
+  //       }
+  //     );
+  //     if (response.status === 200) {
+  //       console.log("Customer edited successfully");
+  //       setShowRequestMessage(true);
+  //       setMessage("Customer edited successfully");
+  //       setTimeout(() => {
+  //         setShowRequestMessage(false);
+  //         setMessage("");
+  //       }, 3000);
+  //       setEditCustomerModalOpen(false);
+  //       setEditingCustomer(null);
+  //       await fetchCustomers();
+  //     }
+  //   } catch (error) {
+  //     setErrorMsg(error.response.data.message);
+  //     setMessage(error.response.data.message);
+  //     setTimeout(() => {
+  //       setShowRequestMessage(false);
+  //       setMessage("");
+  //     }, 3000);
+  //   }
+  // };
   const sortedAndSearchedCustomers = customers
     .filter((customer) =>
       `${customer.id} ${customer.firstname} ${customer.lastname} ${customer.email} ${customer.phoneNumber} ${customer.role}`
@@ -179,15 +179,18 @@ export default function CustomerList(props) {
         </>
       ) : ( */}
       <div
-        style={{
-          minHeight: "100vh",
-        }}
+      // style={{
+      //   minHeight: "100vh",
+      // }}
       >
         <Box
           sx={{
-            minWidth: "60%",
-            minHeight: "100vh",
-            position: "relative",
+            // minWidth: "60%",
+            // minHeight: "100vh",
+            // position: "relative",
+            width: "100%",
+            // overflow: "auto",
+            height: "100%",
           }}
         >
           <TableName> Customers </TableName>
