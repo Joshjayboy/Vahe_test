@@ -133,7 +133,7 @@ export default function CustomerList(props) {
 
   return (
     <>
-      {showCustomerInfo ? (
+      {/* {showCustomerInfo ? (
         <>
           <div
             style={{
@@ -177,142 +177,139 @@ export default function CustomerList(props) {
             />
           </div>
         </>
-      ) : (
-        <div
-          style={{
+      ) : ( */}
+      <div
+        style={{
+          minHeight: "100vh",
+        }}
+      >
+        <Box
+          sx={{
+            minWidth: "60%",
             minHeight: "100vh",
+            position: "relative",
           }}
         >
-          <Box
-            sx={{
-              minWidth: "60%",
-              minHeight: "100vh",
-              position: "relative",
-            }}
-          >
-            <TableName> Customers </TableName>
-            <Divider />
-            <Search search={search} setSearch={setSearch} />
-            <TableContainer>
-              <Table
-                className={classes.table}
-                aria-label="simple table"
-                sx={{ position: "relative", minWidth: 650 }}
-              >
-                <TableHead>
-                  <TableRow sx={{ border: ".5px #ccc solid" }}>
-                    <TableCell className={classes.tableCell}>
-                      <TableSortLabel
-                        active={orderBy === "id"}
-                        direction={orderBy === "id" ? order : "asc"}
-                        onClick={() => handleSort("id")}
-                      >
-                        ID
-                      </TableSortLabel>
-                    </TableCell>
-                    <TableCell className={classes.tableCell}>
-                      <TableSortLabel
-                        active={orderBy === "firstname"}
-                        direction={orderBy === "firstname" ? order : "asc"}
-                        onClick={() => handleSort("firstname")}
-                      >
-                        First Name
-                      </TableSortLabel>
-                    </TableCell>
-                    <TableCell className={classes.tableCell}>
-                      <TableSortLabel
-                        active={orderBy === "lastname"}
-                        direction={orderBy === "lastname" ? order : "asc"}
-                        onClick={() => handleSort("lastname")}
-                      >
-                        Last Name
-                      </TableSortLabel>
-                    </TableCell>
-                    <TableCell className={classes.tableCell}>
-                      <TableSortLabel
-                        active={orderBy === "email"}
-                        direction={orderBy === "email" ? order : "asc"}
-                        onClick={() => handleSort("email")}
-                      >
-                        Email
-                      </TableSortLabel>
-                    </TableCell>
-                    <TableCell className={classes.tableCell}>
-                      <TableSortLabel
-                        active={orderBy === "phoneNumber"}
-                        direction={orderBy === "phoneNumber" ? order : "asc"}
-                        onClick={() => handleSort("phoneNumber")}
-                      >
-                        Phone Number
-                      </TableSortLabel>
-                    </TableCell>
-                    <TableCell className={classes.tableCell}>
-                      <TableSortLabel
-                        active={orderBy === "role"}
-                        direction={orderBy === "role" ? order : "asc"}
-                        onClick={() => handleSort("role")}
-                      >
-                        Role
-                      </TableSortLabel>
-                    </TableCell>
-                    <TableCell className={classes.tableCell}>Actions</TableCell>
-                  </TableRow>
-                </TableHead>
+          <TableName> Customers </TableName>
+          <Divider />
+          <Search search={search} setSearch={setSearch} />
+          <TableContainer>
+            <Table
+              className={classes.table}
+              aria-label="simple table"
+              sx={{ position: "relative", minWidth: 650 }}
+            >
+              <TableHead>
+                <TableRow sx={{ border: ".5px #ccc solid" }}>
+                  <TableCell className={classes.tableCell}>
+                    <TableSortLabel
+                      active={orderBy === "id"}
+                      direction={orderBy === "id" ? order : "asc"}
+                      onClick={() => handleSort("id")}
+                    >
+                      ID
+                    </TableSortLabel>
+                  </TableCell>
+                  <TableCell className={classes.tableCell}>
+                    <TableSortLabel
+                      active={orderBy === "firstname"}
+                      direction={orderBy === "firstname" ? order : "asc"}
+                      onClick={() => handleSort("firstname")}
+                    >
+                      First Name
+                    </TableSortLabel>
+                  </TableCell>
+                  <TableCell className={classes.tableCell}>
+                    <TableSortLabel
+                      active={orderBy === "lastname"}
+                      direction={orderBy === "lastname" ? order : "asc"}
+                      onClick={() => handleSort("lastname")}
+                    >
+                      Last Name
+                    </TableSortLabel>
+                  </TableCell>
+                  <TableCell className={classes.tableCell}>
+                    <TableSortLabel
+                      active={orderBy === "email"}
+                      direction={orderBy === "email" ? order : "asc"}
+                      onClick={() => handleSort("email")}
+                    >
+                      Email
+                    </TableSortLabel>
+                  </TableCell>
+                  <TableCell className={classes.tableCell}>
+                    <TableSortLabel
+                      active={orderBy === "phoneNumber"}
+                      direction={orderBy === "phoneNumber" ? order : "asc"}
+                      onClick={() => handleSort("phoneNumber")}
+                    >
+                      Phone Number
+                    </TableSortLabel>
+                  </TableCell>
+                  <TableCell className={classes.tableCell}>
+                    <TableSortLabel
+                      active={orderBy === "role"}
+                      direction={orderBy === "role" ? order : "asc"}
+                      onClick={() => handleSort("role")}
+                    >
+                      Role
+                    </TableSortLabel>
+                  </TableCell>
+                  <TableCell className={classes.tableCell}>Actions</TableCell>
+                </TableRow>
+              </TableHead>
 
-                <TableBody>
-                  {sortedAndSearchedCustomers
-                    .slice(
-                      currentPage * PERPAGE - PERPAGE,
-                      currentPage * PERPAGE
-                    )
-                    .map((customer, index) => (
-                      <CustomerTableRow
-                        key={customer.id}
-                        customer={customer}
-                        setCustomer={setCustomer}
-                        index={index}
-                        setEditingCustomer={setEditingCustomer}
-                        setCustomerToDelete={setCustomerToDelete}
-                        setDeleteCustomerDialog={setDeleteCustomerDialog}
-                        setEditCustomerModalOpen={setEditCustomerModalOpen}
-                        setShowCustomerInfo={setShowCustomerInfo}
-                      />
-                    ))}
-                </TableBody>
-              </Table>
-              <EditCustomerDialog
-                open={editCustomerModalOpen}
-                onClose={() => setEditCustomerModalOpen(false)}
-                customer={editingCustomer}
-                setUpdatedCustomer={setEditingCustomer}
-                handleClose={() => setEditCustomerModalOpen(false)}
-                handleUpdate={fetchCustomers}
+              <TableBody>
+                {sortedAndSearchedCustomers
+                  .slice(currentPage * PERPAGE - PERPAGE, currentPage * PERPAGE)
+                  .map((customer, index) => (
+                    <CustomerTableRow
+                      key={customer.id}
+                      customer={customer}
+                      setCustomer={setCustomer}
+                      index={index}
+                      setEditingCustomer={setEditingCustomer}
+                      setCustomerToDelete={setCustomerToDelete}
+                      setDeleteCustomerDialog={setDeleteCustomerDialog}
+                      setEditCustomerModalOpen={setEditCustomerModalOpen}
+                      setShowCustomerInfo={setShowCustomerInfo}
+                    />
+                  ))}
+              </TableBody>
+            </Table>
+            <EditCustomerDialog
+              open={editCustomerModalOpen}
+              onClose={() => setEditCustomerModalOpen(false)}
+              customer={editingCustomer}
+              setUpdatedCustomer={setEditingCustomer}
+              handleClose={() => setEditCustomerModalOpen(false)}
+              handleUpdate={fetchCustomers}
+            />
+            <DeleteCustomerDialog
+              open={deleteCustomerDialog}
+              onClose={() => setDeleteCustomerDialog(false)}
+              onConfirm={handleConfirmDelete}
+            />
+          </TableContainer>
+          {!!Math.ceil(sortedAndSearchedCustomers.length / PERPAGE) >= 1 && (
+            <div
+              style={{
+                width: "100%",
+                position: "absolute",
+                left: "auto",
+                bottom: "-100px",
+              }}
+            >
+              <CustomPagination
+                allLists={sortedAndSearchedCustomers}
+                currentPage={currentPage}
+                setCurrentPage={setCurrentPage}
               />
-              <DeleteCustomerDialog
-                open={deleteCustomerDialog}
-                onClose={() => setDeleteCustomerDialog(false)}
-                onConfirm={handleConfirmDelete}
-              />
-            </TableContainer>
-            {!!Math.ceil(sortedAndSearchedCustomers.length / PERPAGE) >= 1 && (
-              <div
-                style={{
-                  width: "100%",
-                  position: "absolute",
-                  left: "auto",
-                  bottom: "-100px",
-                }}
-              >
-                <CustomPagination
-                  allLists={sortedAndSearchedCustomers}
-                  currentPage={currentPage}
-                  setCurrentPage={setCurrentPage}
-                />
-              </div>
-            )}
-          </Box>
-        </div>
-      )}
+            </div>
+          )}
+        </Box>
+      </div>
+      {/* )} */}
     </>
   );
 }
