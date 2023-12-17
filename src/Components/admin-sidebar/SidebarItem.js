@@ -8,7 +8,7 @@ export default function SidebarItem(props) {
   const { item, updateSidebar, callComponent } = props;
   return (
     <ListItemButton
-      sx={item.isComponentOpened && { color: "blue" }}
+      // sx={item.isComponentOpened && { color: "blue" }}
       onClick={() => {
         callComponent({ isComponentOpened: true, ...item });
         if (item.open !== null) {
