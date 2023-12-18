@@ -57,10 +57,15 @@ export default function CustomerTableRow(props) {
         await setCustomer(customer);
         await setShowCustomerInfo(true);
       }}
-      style={{
-        backgroundColor: index % 2 !== 0 ? "white" : `rgba(249,250,251,255)`,
-        cursor: "pointer",
-        position: "relative",
+      // style={{
+      //   backgroundColor: index % 2 !== 0 ? "white" : `rgba(249,250,251,255)`,
+      //   cursor: "pointer",
+      //   position: "relative",
+      //   border: ".5px #ccc solid",
+      // }}
+      sx={{
+        "&:last-child td, &:last-child th": { border: 0 },
+        backgroundColor: index % 2 === 0 ? `rgba(249,250,251,255)` : "white",
         border: ".5px #ccc solid",
       }}
     >
