@@ -215,20 +215,20 @@ export default function CustomerList(props) {
         </TableContainer>
       </Box>
       {!!Math.ceil(sortedAndSearchedCustomers.length / PERPAGE) >= 1 && (
-        <div
-          style={{
-            width: "100%",
-            position: "absolute",
-            left: "auto",
-            bottom: "-100px",
-          }}
-        >
-          <CustomPagination
-            allLists={sortedAndSearchedCustomers}
-            currentPage={currentPage}
-            setCurrentPage={setCurrentPage}
-          />
-        </div>
+        // <div
+        //   style={{
+        //     width: "100%",
+        //     position: "absolute",
+        //     left: "auto",
+        //     bottom: "-100px",
+        //   }}
+        // >
+        <CustomPagination
+          allLists={sortedAndSearchedCustomers}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+        />
+        // {/* </div> */}
       )}
     </div>
   );
