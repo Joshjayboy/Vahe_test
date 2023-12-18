@@ -132,57 +132,7 @@ export default function CustomerList(props) {
     );
 
   return (
-    <>
-      {/* {showCustomerInfo ? (
-        <>
-          <div
-            style={{
-              backgroundColor: "rgba(245,245,245,255)",
-              outline: "4px rgba(245,245,245,255) solid",
-            }}
-          >
-            <button
-              onClick={() => {
-                setShowCustomerInfo(false);
-              }}
-              style={{
-                width: "200px",
-                marginTop: "20px",
-                marginLeft: 3,
-                fontFamily: "Inter",
-                color: "green",
-                backgroundColor: "transparent",
-                border: "none",
-                outline: "none",
-                cursor: "pointer",
-                marginBottom: "20px",
-              }}
-            >
-              <ArrowBackIcon sx={{ mr: 1 }} /> Back to customer
-            </button>
-          </div>
-          <div
-            style={{
-              padding: "16px",
-              outline: "7px rgba(245,245,245,255) solid",
-              borderRadius: "15px",
-              marginTop: "5px",
-            }}
-          >
-            <CustomerInfo
-              customer={customer}
-              showRequestMessage={showRequestMessage}
-              message={message}
-              handleSaveChangesClick={handleSaveChangesClick}
-            />
-          </div>
-        </>
-      ) : ( */}
-      {/* <div
-      // style={{
-      //   minHeight: "100vh",
-      // }}
-      > */}
+    <>          
       <div style={{ marginBottom: "20px" }}>
         <TableName> Customers </TableName>
         <Divider />

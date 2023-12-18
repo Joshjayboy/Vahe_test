@@ -18,10 +18,6 @@ import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import { mainListItems, secondaryListItems } from "./listItems";
-// import Chart from './Chart';
-// import Deposits from './Deposits';
-// import Orders from './Orders';
-
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import SidebarItem from "./SidebarItem";
 import MonetizationOnOutlinedIcon from "@mui/icons-material/MonetizationOnOutlined";
@@ -33,9 +29,7 @@ import { v4 as uuid } from "uuid";
 import Home from "../sidebar-components/Home";
 import Orders from "../sidebar-components/Orders";
 import Subscriptions from "../sidebar-components/Subscriptions";
-
 import Avatar from "@mui/material/Avatar";
-
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import Customers from "../sidebar-components/Customers";
 import Products from "./../sidebar-components/Products";
