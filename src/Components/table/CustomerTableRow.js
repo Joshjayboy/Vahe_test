@@ -69,41 +69,38 @@ export default function CustomerTableRow(props) {
         border: ".5px #ccc solid",
       }}
     >
-      <TableCell component="th" scope="row" className={classes.tableCell}>
-        {customer.id}
+      {/* <TableCell component="th" scope="row" className={classes.tableCell}> */}
+      <TableCell component="th" scope="row">
+        {customer.id === null ? <p>No items found.</p> : <p> {customer.id}</p>}
       </TableCell>
-      <TableCell style={{ fontFamily: "Inter" }} className={classes.tableCell}>
+      <TableCell style={{ fontFamily: "Inter" }}>
         {customer.firstname}
       </TableCell>
-      <TableCell style={{ fontFamily: "Inter" }} className={classes.tableCell}>
-        {customer.lastname}
-      </TableCell>
-      <TableCell style={{ fontFamily: "Inter" }} className={classes.tableCell}>
-        {customer.email}
-      </TableCell>
-      <TableCell style={{ fontFamily: "Inter" }} className={classes.tableCell}>
+      <TableCell style={{ fontFamily: "Inter" }}>{customer.lastname}</TableCell>
+      <TableCell style={{ fontFamily: "Inter" }}>{customer.email}</TableCell>
+      <TableCell style={{ fontFamily: "Inter" }}>
         {customer.phoneNumber}
       </TableCell>
       <TableCell
         style={{ fontFamily: "Inter" }}
         align="center"
-        className={classes.tableCell}
+        // className={classes.tableCell}
       >
         <div
           style={{
             color: color.text,
             backgroundColor: color.backgroundColor,
-            outline: `2px ${color.border} solid`,
-            borderRadius: "25px",
-            padding: "4px 12px",
+            // outline: `2px ${color.border} solid`,
+            //   borderRadius: "25px",
+            //   padding: "4px 12px",
           }}
         >
           {customer.role}
         </div>
       </TableCell>
       <TableCell
-        style={{ display: "flex" }}
-        className={classes.tableCell}
+        //  style={{ display: "flex" }}
+        //   className={classes.tableCell}
         onClick={(e) => e.stopPropagation()}
       >
         <InfoOutlinedIcon
